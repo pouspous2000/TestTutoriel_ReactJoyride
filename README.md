@@ -10,13 +10,12 @@ React-Joyride is a react component used to create interactive tutorial on websit
 
 <h3> a) Install React-Joyride on your current react project </h3>
 
+`npm i react-joyride`
 
-npm i react-joyride
 <h3> b) Define the different import in your file </h3>
 
-
-import Joyride from ‘react-joyride’
-import JoyRide, { ACTIONS, EVENTS, STATUS } from "react-joyride";
+`import Joyride from ‘react-joyride’
+import JoyRide, { ACTIONS, EVENTS, STATUS } from "react-joyride";`
 
 <h3> c) Define the different the tutorial’s steps (target and content) </h3>
 
@@ -24,7 +23,7 @@ target : targeting the particular classNames (or id) that will hold the content 
 
 content : the content property is where we define the text .
 
-
+`
 const TOUR_STEPS = [
   {
     target: '.disable',
@@ -35,6 +34,8 @@ const TOUR_STEPS = [
     content: 'Pour ajouter une section, cliquez sur le bouton "Ajouter".',
   },
 ]
+`
+
 <h3> d) Define the step’s default values (run, continuous, loading, stepIndex, steps, key) </h3>
 
 run : Set the run field to false, to ensure that the tour doesn’t start automatically.
@@ -47,7 +48,7 @@ steps: The steps field is set to the TOUR_STEPS that we declared in step 1
 
 key : The key field makes the tour re-render when the tour is restarted.
 
-
+`
  const INITIAL_STATE = {
   run: false,
   continuous: true,
@@ -56,6 +57,8 @@ key : The key field makes the tour re-render when the tour is restarted.
   steps: TOUR_STEPS,
   key: new Date(), // This field makes the tour to re-render when the tour is restarted
 };
+`
+
 <h3> e) Different props : </h3>
 
 Those different step can be add toINITIAL_STATE if it’s common to all the tutorial, else it can be add individually in each step 
@@ -68,7 +71,7 @@ spotlightClicks (Boolean) : allow to interact with the code (ex : click on a but
 
 style (object) : overwrite the default styling
 
-
+`
 styles={{
                     options: {
                         backgroundColor: '#335f8a',
@@ -86,8 +89,9 @@ styles={{
                         fontWeight: 'bold',
                     }
                 }}
-:warning:  some styles need to be overwrite on a css file (ex : title) :warning:
+` <br>
 
+:warning:  some styles need to be overwrite on a css file (ex : title) :warning:
  
 
 placementBeacon (string) : set the placement of the Beacon (can be : top, bottom, left, right)
