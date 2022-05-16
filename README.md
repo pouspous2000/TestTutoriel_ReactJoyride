@@ -239,10 +239,10 @@ return (
 
 <h1> :mag: Sources : </h1>
 
-Official React-Joyride doc : Overview 
+Official React-Joyride doc :  [Overview](https://docs.react-joyride.com/) !
 
-Demo React-Joyride : React Joyride Demo 
+Demo React-Joyride :  [React Joyride Demo](https://react-joyride.com/) !
 
-Code Demo React-Joyride : react-joyride-demo - CodeSandbox 
+Code Demo React-Joyride : [react-joyride-demo - CodeSandbox](https://codesandbox.io/s/react-joyride-demo-i1776) ! 
 
-Creation of a functional react-joyride script step by step : A Practical Guide To Product Tours In React Apps 
+Creation of a functional react-joyride script step by step :  [A Practical Guide To Product Tours In React Apps](https://allprowebdesigns.com/2020/08/a-practical-guide-to-product-tours-in-react-apps/) ! 
