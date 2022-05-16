@@ -10,45 +10,50 @@ React-Joyride is a react component used to create interactive tutorial on websit
 
 <h3> a) Install React-Joyride on your current react project </h3>
 
-`npm i react-joyride`
+```
+npm i react-joyride
+```
 
 <h3> b) Define the different import in your file </h3>
 
-`import Joyride from ‘react-joyride’
-import JoyRide, { ACTIONS, EVENTS, STATUS } from "react-joyride";`
+```
+import Joyride from ‘react-joyride’;
+import JoyRide, { ACTIONS, EVENTS, STATUS } from "react-joyride";
+```
 
 <h3> c) Define the different the tutorial’s steps (target and content) </h3>
 
-target : targeting the particular classNames (or id) that will hold the content of the tour on the page.
+__target__ : targeting the particular classNames (or id) that will hold the content of the tour on the page.
 
-content : the content property is where we define the text .
+__content__ : the content property is where we define the text .
 
-`
+
+```
 const TOUR_STEPS = [
   {
-    target: '.disable',
-    content: 'Vos anciennes sections sont grisées. Elles ne sont pas perdues mais vous ne pouvez plus les modifier.',
+   target: '.disable',
+   content: 'Vos anciennes sections sont grisées. Elles ne sont pas perdues mais vous ne pouvez plus les modifier.',
   },
   {
-    target: '.tutoriel-bouton-ajouter',
-    content: 'Pour ajouter une section, cliquez sur le bouton "Ajouter".',
+   target: '.tutoriel-bouton-ajouter',
+   content: 'Pour ajouter une section, cliquez sur le bouton "Ajouter".',
   },
 ]
-`
+```
 
 <h3> d) Define the step’s default values (run, continuous, loading, stepIndex, steps, key) </h3>
 
-run : Set the run field to false, to ensure that the tour doesn’t start automatically.
+__run__ : Set the run field to false, to ensure that the tour doesn’t start automatically.
 
-continuous :  Set the continuous prop to true, because we want to show the button.
+__continuous__ :  Set the continuous prop to true, because we want to show the button.
 
-stepIndex : stepIndex is the index number, which is set to 0.
+__stepIndex__ : stepIndex is the index number, which is set to 0.
 
-steps: The steps field is set to the TOUR_STEPS that we declared in step 1
+__steps__: The steps field is set to the TOUR_STEPS that we declared in step 1
 
-key : The key field makes the tour re-render when the tour is restarted.
+__key__ : The key field makes the tour re-render when the tour is restarted.
 
-`
+```
  const INITIAL_STATE = {
   run: false,
   continuous: true,
@@ -57,21 +62,21 @@ key : The key field makes the tour re-render when the tour is restarted.
   steps: TOUR_STEPS,
   key: new Date(), // This field makes the tour to re-render when the tour is restarted
 };
-`
+```
 
 <h3> e) Different props : </h3>
 
 Those different step can be add toINITIAL_STATE if it’s common to all the tutorial, else it can be add individually in each step 
 
-title : will appear on the top of the tool tips (can be html beacon or a string) 
+__title__ : will appear on the top of the tool tips (can be html beacon or a string) 
 
-diseableBeacon (Boolean) : the tutorial start without clicking on the beacon. 
+__diseableBeacon (Boolean)__ : the tutorial start without clicking on the beacon. 
 
-spotlightClicks (Boolean) : allow to interact with the code (ex : click on a button)
+__spotlightClicks (Boolean)__ : allow to interact with the code (ex : click on a button)
 
-style (object) : overwrite the default styling
+__style (object)__ : overwrite the default styling
 
-`
+```
 styles={{
                     options: {
                         backgroundColor: '#335f8a',
@@ -89,35 +94,36 @@ styles={{
                         fontWeight: 'bold',
                     }
                 }}
-` <br>
+```
 
 :warning:  some styles need to be overwrite on a css file (ex : title) :warning:
  
 
-placementBeacon (string) : set the placement of the Beacon (can be : top, bottom, left, right)
+__placementBeacon (string)__ : set the placement of the Beacon (can be : top, bottom, left, right)
 
-placement (string) : placement of the tooltip ( can be :                                   top, top-start, top-end; bottom, bottom-start, bottom-end; left, left-start, left-end right, right-start, right-end auto (it will choose the best position)center (set the target to body)
+__placement (string)__ : placement of the tooltip ( can be :                                   top, top-start, top-end; bottom, bottom-start, bottom-end; left, left-start, left-end right, right-start, right-end auto (it will choose the best position)center (set the target to body)
 
-event (string) : the event to trigger the beacon. It can be click or hover
+__event (string)__ : the event to trigger the beacon. It can be click or hover
 
-isFixed (boolean) : Force the step to be fixed.
+__isFixed (boolean)__ : Force the step to be fixed.
 
-offset (number):The distance from the target to the tooltip.
+__offset (number)__:The distance from the target to the tooltip.
 
-showProgress (boolean) : display the progress in the tutorial
+__showProgress (boolean)__ : display the progress in the tutorial
 
-showSkipButton (boolean) 
+__showSkipButton (boolean)__ 
 
-disableCloseOnEsc  (boolean): enable to quit the tutorial by pushing esc button.
+__disableCloseOnEsc  (boolean)__: enable to quit the tutorial by pushing esc button.
 
-disableOverlayClose (boolean) : enable to quit the tutorial by clicking outside the tooltip.
+__disableOverlayClose (boolean)__ : enable to quit the tutorial by clicking outside the tooltip.
 
-hideBackButton (boolean) 
+__hideBackButton (boolean)__ 
 
-hideCloseButton (boolean) 
+__hideCloseButton (boolean)__ 
 
-local (object) : enable to change the button’s default name.  (ex :   
+__local (object)__ : enable to change the button’s default name.  (ex :   
 
+```
 
   locale={{
     next: "Suivant",
@@ -126,12 +132,12 @@ local (object) : enable to change the button’s default name.  (ex :
     last: "Terminer",
   }}
  
-
+```
  
 
 <h3> f) Manage the state with the reducer </h3>
 
-
+```
 const reducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     // start the tour
@@ -159,11 +165,12 @@ const reducer = (state = INITIAL_STATE, action) => {
       return state;
   }
 };
+```
 According to the events (start, stop, and reset), we’ve dispatched the proper state to manage the tour.
 
 <h3> g) Create the callback </h3>
 
-
+```
 const callback = data => {
     const { action, index, type, status } = data;
     if (action === ACTIONS.CLOSE
@@ -180,35 +187,38 @@ const callback = data => {
       });
     }
 };
+```
 It listen the click events and then do some conditional operations. 
 
 <h3> h) Start the tutorial </h3>
 
 :arrow_right:  Autostart the Tour With useEffect :
 
-
+```
 useEffect(() => {
   if(!localStorage.getItem("tour"){
     dispatch({ type: "START"});
   }
 }, []);
+```
 :arrow_right:  Trigger by a Button : 
 
-
+```
 const startTour = () => {
   dispatch({ type: "START" });
 };
+```
 :warning:  if you want to use a button to reload the tutorial :warning: : 
 
-
+```
 const startTour = () => {
   dispatch({ type: "RESTART" });
 };
- 
+```
 
 <h3> i) Call your Joyride component in the return </h3>
 
-
+```
 return (
     <>
       <JoyRide
@@ -220,6 +230,7 @@ return (
     </>
   );
 };
+```
  :tada:  And you are done ! :tada: 
 
  
