@@ -1,0 +1,26 @@
+.boutonDroite{
+    float:right;
+    margin-top:20px;
+    margin-right: 20px;
+}
+.titre{
+    float:left;
+    margin-top:30px;
+    margin-left:20px;
+}
+.start{
+    float : right;
+    margin-right:20px;
+    margin-top : 20px;
+}
+
+h4{
+    text-align: center;
+}
+.react-joyride__tooltip{
+    border-radius: 10px !important;
+}
+
+.play {
+    float:right;
+}
